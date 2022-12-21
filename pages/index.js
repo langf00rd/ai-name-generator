@@ -11,7 +11,7 @@ export default function Home() {
   const generate = async () => {
     try {
       setLoading(true)
-      const response = await axios.post("https://grand-near-century.glitch.me/generate-product-name", {
+      const response = await axios.post("https://ai-server-qjof.onrender.com/generate-product-name", {
         "seedWords": seeds,
         "description": description
       })
