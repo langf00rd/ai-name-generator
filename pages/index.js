@@ -46,11 +46,10 @@ export default function Home() {
         <section className="flex flex-col max-w-xl m-auto py-10 px-5 text-center">
           <input value={description} onChange={e => setDescription(e.target.value)} placeholder="Enter a description" className={styles.input} />
           <input value={seeds} onChange={e => setSeeds(e.target.value)} placeholder="Choose some name keywords" className={styles.input} />
-          <p className="my-3">{name.replace("Product names: ", "")}</p>
+          <p className="my-3">{name}</p>
           <button onClick={generate} className={styles.button}>{loading ? "beep boop... 🤖" : "Generate"}</button>
         </section>
       </div>
-
     </>
   );
 }
