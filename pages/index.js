@@ -18,46 +18,44 @@ export default function Home() {
       setName(response.data)
       setLoading(false)
     } catch (e) {
-      console.log(e.message)
       setLoading(false)
     }
   }
 
   return (
     <>
+      <div className="text-[#fff] min-h-screen w-screen">
+        <section className="w-screen mt-32 text-center flex items-center justify-center">
+          <div className="lg:text-3xl text-2xl px-5 font-[600] max-w-3xl m-auto lg:leading-[43px] flex-col flex">
+            <div className="py-3 text-sm absolute top-0">
+              <b>NameGen.ai</b>
+            </div>
+            <h1>Generate a cool name for</h1>
+            <h1 className="m-auto w-max">
+              <Typewriter
+                options={{
+                  strings: ['App', 'Website', 'Blog', 'Anything'],
+                  autoStart: true,
+                  loop: true,
+                }}
+              />
+            </h1>
+          </div>
+        </section>
 
-      <section className="bg-blue-100 w-screen h-[50vh] text-center flex items-center justify-center">
-        <div className="text-6xl font-[600] max-w-3xl m-auto leading-[80px] flex-col flex">
-          <h1>Generate a cool name for your</h1>
-          <h1 className="ml-2 text-[#5341FF]">
-            <Typewriter
-              options={{
-                strings: ['App', 'Website', 'Blog', 'Anything'],
-                autoStart: true,
-                loop: true,
-              }}
-            />
-          </h1>
-        </div>
-      </section>
-
-      <section className="flex flex-col max-w-xl m-auto py-10 px-5 text-center">
-        {/* <h1 className="font-bold text-3xl mb-3">Product Name Generator</h1> */}
-        <input value={description} onChange={e => setDescription(e.target.value)} placeholder="Enter a description" className={styles.input} />
-        <input value={seeds} onChange={e => setSeeds(e.target.value)} placeholder="Choose some name keywords" className={styles.input} />
-        {loading ? <p className="mb-2">beep boop generating</p> : <p className="text-[#5341FF] font-[500] my-4">{name.replace("Product names: ", "")}</p>}
-        <button onClick={generate} className={styles.button}>Generate</button>
-      </section>
-
-      {/* <section className="bg-blue-100 p-5 py-20">
-        <h1 className="text-2xl text-center max-w-5xl leading-10 m-auto font-[500]">A great business name should help your company stand out and provide a canvas to paint your own meaning on. The Looka Business Name Generator helps you brainstorm ideas, check availability, and see logo ideas instantly.</h1>
-      </section> */}
+        <section className="flex flex-col max-w-xl m-auto py-10 px-5 text-center">
+          <input value={description} onChange={e => setDescription(e.target.value)} placeholder="Enter a description" className={styles.input} />
+          <input value={seeds} onChange={e => setSeeds(e.target.value)} placeholder="Choose some name keywords" className={styles.input} />
+          <p className="my-3">{name.replace("Product names: ", "")}</p>
+          <button onClick={generate} className={styles.button}>{loading ? "beep boop... 🤖" : "Generate"}</button>
+        </section>
+      </div>
 
     </>
   );
 }
 
 const styles = {
-  input: `border p-3 px-4 rounded-full outline-none my-3 w-full`,
-  button: `bg-[#5341FF] text-[#fff] max-w-[200px] m-auto font-[500] active:scale-90 transition-all p-3 px-4 rounded-full`,
+  input: `border m-auto px-3 py-2 text-[14px] max-w-[300px] rounded-full outline-none my-3 w-full text-[#222]`,
+  button: `text-[13px] bg-blue-800 whitespace-nowrap text-[#fff] w-max m-auto font-[500] active:scale-90 transition-all p-3 px-4 rounded-full`,
 }
