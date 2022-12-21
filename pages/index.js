@@ -12,7 +12,7 @@ export default function Home() {
     try {
       setLoading(true)
       const response = await axios.post("https://ai-server-qjof.onrender.com/generate-product-name", {
-        "seedWords": seeds,
+        "seed_words": seeds,
         "description": description
       })
       setName(response.data)
