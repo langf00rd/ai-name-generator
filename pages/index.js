@@ -15,7 +15,7 @@ export default function Home() {
         "seed_words": seeds,
         "description": description
       })
-      setName(response.data)
+      setName(response.data.payload.replace("Product names: ", ""))
       setLoading(false)
     } catch (e) {
       setLoading(false)
